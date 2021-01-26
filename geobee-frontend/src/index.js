@@ -9,8 +9,8 @@ let score = 0
 
 function handleClick(state) {
     console.log(state.name)
-    
     form = document.getElementById('state-input')
+    form.innerHTML = ''
     input = document.createElement('input')
     input.type = "text"
     input.name = "state"
@@ -27,12 +27,11 @@ function handleSubmit(e, state) {
     e.preventDefault()
     scoreKeeper = document.getElementById('score-keeper')
     if (e.target.state.value == state.name) {
-        scoreKeeper.innerText = `Current Score: ${score++}`
+        score++
+        scoreKeeper.innerText = `Current Score: ${score}`
     } else {
         scoreKeeper.innerText = `Current Score: ${score}`
     }
-    debugger
-    form = document.getElementById('state-input').innerHTML = ''
 }
 // function addMap() {
 //     map = document.getElementById('map')
