@@ -6,7 +6,8 @@ class UsersController < ApplicationController
     end
 
     def create
-        render json: User.create(user_params)
+        user = User.find_or_create_by(username: user_params["username"])
+        render json: user    
     end
 
     private 
