@@ -19,7 +19,13 @@ function handleLoginSubmit(e, username){
         body: JSON.stringify({'username': username}),
     })
     .then(resp => resp.json())
-    .then(console.log)
+    .then(user => {
+        currentUser = user 
+        userLoggedIn = true
+        document.getElementById("login-form").remove()
+        document.getElementById('login').innerHTML = ''
+
+    })
 }
 
 const states = [
@@ -113,6 +119,7 @@ function login() {
         let loginDiv = document.getElementById('login')   
         let loginForm = document.createElement('form')        
         
+        loginForm.id = "login-form"
         input = document.createElement('input')
         input.type = "text"
         input.name = "username"
