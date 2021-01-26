@@ -5,6 +5,18 @@
     <title>Geobee</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="./src/index.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
+    <script src="./us-map-1.0.1/lib/raphael.js"></script>
+    <script src="./us-map-1.0.1/jquery.usmap.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#map').usmap({
+                'click' : function(e, state) {
+                    handleClick(state)
+                }
+            });
+         });
+    </script>
   </head>
   <body>
 
@@ -13,7 +25,10 @@
     </header>
 
     <main>
+        <div id="map" style="width: 300px; height: 300px;"></div>
+        <br> 
+        <form id="state-input">  
+        </form>
     </main>
-
   </body>
 </html>
