@@ -6,8 +6,7 @@ let userLoggedIn = false
 let currentUser
 login()
 
-//load map 
-// addMap() 
+
 let score = 0
 
 function handleLoginSubmit(e, username){
@@ -23,60 +22,66 @@ function handleLoginSubmit(e, username){
 }
 
 const states = [
-    {"AL" : "Alabama"},
-    {"AK" : "Alaska"},
-    {"AZ" : "Arizona"},
-    {"AR" : "Arkansas"},
-    {"CA" : "California"},
-    {"CO" : "Colorado"},
-    {"CT" : "Connecticut"},
-    {"DE" : "Delaware"},
-    {"FL" : "Florida"},
-    {"GA" : "Georgia"},
-    {"HI" : "Hawaii"}, 
-    {"ID" : "Idaho"},
-    {"IL" : "Illinois"},
-    {"IN" : "Indiana"},
-    {"IA" : "Iowa"},
-    {"KS" : "Kansas"},
-    {"KY" : "Kentucky"},
-    {"LA" : "Louisiana"},
-    {"ME" : "Maine"},
-    {"MD" : "Maryland"}, 
-    {"MA" : "Massachusetts"}, 
-    {"MI" : "Michigan"},
-    {"MN" : "Minnesota"},
-    {"MS" : "Mississippi"},
-    {"MO" : "Missouri"},
-    {"MT" : "Montana"},
-    {"NE" : "Nebraska"},
-    {"NV" : "Nevada"},
-    {"NH" : "New Hampshire"},
-    {"NJ" : "New Jersey"},
-    {"NM" : "New Mexico"},
-    {"NY" : "New York"},
-    {"NC" : "North Carolina"},
-    {"ND" : "North Dakota"},
-    {"OH" : "Ohio"},
-    {"OK" : "Oklahoma"},
-    {"OR" : "Oregon"},
-    {"PA" : "Pennsylvania"},
-    {"RI" : "Rhode Island"}, 
-    {"SC" : "South Carolina"},
-    {"SD" : "South Dakota"}, 
-    {"TN" : "Tennessee"},
-    {"TX" : "Texas"},
-    {"UT" : "Utah"},
-    {"VT" : "Vermont"},
-    {"VA" : "Virginia"},
-    {"WA" : "Washington"},
-    {"WV" : "West Virginia"},
-    {"WI" : "Wisconsin"},
-    {"WY" : "Wyoming"},
+    {symbol: "AL", name: "Alabama"},
+    {symbol: "AK", name:  "Alaska"},
+    {symbol: "AZ" , name: "Arizona"},
+    {symbol: "AR" , name: "Arkansas"},
+    {symbol: "CA" , name: "California"},
+    {symbol: "CO" , name: "Colorado"},
+    {symbol: "CT" , name: "Connecticut"},
+    {symbol: "DE" , name: "Delaware"},
+    {symbol: "FL" , name: "Florida"},
+    {symbol: "GA" , name: "Georgia"},
+    {symbol: "HI" , name: "Hawaii"}, 
+    {symbol: "ID" , name: "Idaho"},
+    {symbol: "IL" , name: "Illinois"},
+    {symbol: "IN" , name: "Indiana"},
+    {symbol: "IA" , name: "Iowa"},
+    {symbol: "KS" , name: "Kansas"},
+    {symbol: "KY" , name: "Kentucky"},
+    {symbol: "LA" , name: "Louisiana"},
+    {symbol: "ME" , name: "Maine"},
+    {symbol: "MD" , name: "Maryland"}, 
+    {symbol: "MA" , name: "Massachusetts"}, 
+    {symbol: "MI" , name: "Michigan"},
+    {symbol: "MN" , name: "Minnesota"},
+    {symbol: "MS" , name: "Mississippi"},
+    {symbol: "MO" , name: "Missouri"},
+    {symbol: "MT" , name: "Montana"},
+    {symbol: "NE" , name: "Nebraska"},
+    {symbol: "NV" , name: "Nevada"},
+    {symbol: "NH" , name: "New Hampshire"},
+    {symbol: "NJ" , name: "New Jersey"},
+    {symbol: "NM" , name: "New Mexico"},
+    {symbol: "NY" , name: "New York"},
+    {symbol: "NC" , name: "North Carolina"},
+    {symbol: "ND" , name: "North Dakota"},
+    {symbol: "OH" , name: "Ohio"},
+    {symbol: "OK" , name: "Oklahoma"},
+    {symbol: "OR" , name: "Oregon"},
+    {symbol: "PA" , name: "Pennsylvania"},
+    {symbol: "RI" , name: "Rhode Island"}, 
+    {symbol: "SC" , name: "South Carolina"},
+    {symbol: "SD" , name: "South Dakota"}, 
+    {symbol: "TN" , name: "Tennessee"},
+    {symbol: "TX" , name: "Texas"},
+    {symbol: "UT" , name: "Utah"},
+    {symbol: "VT" , name: "Vermont"},
+    {symbol: "VA" , name: "Virginia"},
+    {symbol: "WA" , name: "Washington"},
+    {symbol: "WV" , name: "West Virginia"},
+    {symbol: "WI" , name: "Wisconsin"},
+    {symbol: "WY" , name: "Wyoming"},
 ]
 
+function convertStateName(symbol) {
+    let currentState = states.find(state => state.symbol == symbol.name)
+    let state = currentState.name
+    handleClick(state)
+}
+
 function handleClick(state) {
-    console.log(state.name)
+    console.log(state)
     let div = document.getElementById('state-form-block')
     div.innerHTML = ''
     let form = document.createElement('form')
@@ -97,15 +102,11 @@ function handleClick(state) {
 function handleSubmit(e, state) {
     e.preventDefault()
     let scoreKeeper = document.getElementById('score-keeper')
-    if (e.target.state.value === state.name) {
+    if (e.target.state.value.toLowerCase() == state.toLowerCase()) {
         score++
         scoreKeeper.innerText = `Current Score: ${score}`
     }
 }
-// function addMap() {
-//     map = document.getElementById('map')
-//     map.usmap({})
-// }
 
 
 function login() {  
