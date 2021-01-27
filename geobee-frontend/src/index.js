@@ -164,14 +164,13 @@ function handleSubmit(e, state) {
     }
 }
 
-// function correctAnswer() {
-//     let paper = Raphael("map")
-//     let raphaelObject = raphaelArray.find(state => state.id === selectedState.name)
-//     d = raphaelObject.d
-//     mark = paper.path(d)
-//     mark.attr("fill", "#00C")
-//     debugger
-// }
+function correctAnswer() {
+    let paper = Raphael("map")
+    let d = paths[selectedState.name]
+    mark = paper.path(d)
+    mark.attr("fill", "#00C")
+    mark.toFront()
+}
 
 
 
