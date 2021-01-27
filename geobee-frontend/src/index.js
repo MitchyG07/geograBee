@@ -337,11 +337,3 @@ function endGame(){
 //       'VA': {fill: 'teal'}
 //     } 
 //   });
-
-  $(document).ready(function() {
-    $('#map').usmap({
-        'click' : function(e, state) {
-              convertStateName(state)
-        },
-      });
- });
