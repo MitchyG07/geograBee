@@ -25,6 +25,8 @@ function handleLoginSubmit(e, username){
         userLoggedIn = true
         document.getElementById("login-form").remove()
         document.getElementById('login').innerHTML = ''
+        theGame = document.getElementsByClassName('gametime')
+        debugger
         newGame()
     })
 }
@@ -183,12 +185,10 @@ function login() {
         input = document.createElement('input')
         input.type = "text"
         input.name = "username"
-        input.placeholder = "username"
+        input.placeholder = "Enter your name to play!"
         submit = document.createElement('input')
         submit.type = "submit"
         submit.value = "Submit" 
-        
-        loginDiv.innerText = 'Log in to Play!'
 
         loginForm.addEventListener('submit', (e) => handleLoginSubmit(e, input.value))
         
