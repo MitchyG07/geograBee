@@ -5,7 +5,7 @@ class StatesGamesController < ApplicationController
     end
 
     def create
-        render json: StatesGame.create(states_games_params)
+        render json: StatesGame.create(difficulty: states_games_params["difficulty"])
     end
 
     private 

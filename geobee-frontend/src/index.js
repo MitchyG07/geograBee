@@ -1,9 +1,11 @@
 const BASE_URL = "http://localhost:3000"
-const STATESGAME_URL = `${BASE_URL}/states_game`
+const STATESGAME_URL = `${BASE_URL}/states_games`
 const SCORE_URL = `${BASE_URL}/scores`
 const USER_URL = `${BASE_URL}/users`
 let userLoggedIn = false
+let playing = false
 let currentUser
+let currentGame
 login()
 
 
@@ -23,7 +25,26 @@ function handleLoginSubmit(e, username){
         userLoggedIn = true
         document.getElementById("login-form").remove()
         document.getElementById('login').innerHTML = ''
+        newGame()
+    })
+}
 
+function postGame(e, difficulty) {
+    fetch(STATESGAME_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'
+    }, 
+        body: JSON.stringify({'difficulty': difficulty}),
+    })
+    .then(resp => resp.json())
+    .then(statesGame => {
+        startNewGame(statesGame)
+        currentGame = statesGame
+        playing = true
+        
+        
+        //send to a new function that has 'start' button, along with timer
+        //that will start once button is clicked
     })
 }
 
@@ -139,3 +160,100 @@ function login() {
     }
 }
 
+
+function newGame() {
+    if (userLoggedIn && !playing) {
+        let newGameDiv = document.getElementById("new-game")
+        let newGameBtn = document.createElement('button')
+        newGameBtn.innerText = 'Start New Game'
+        newGameBtn.addEventListener('click', handleNewGameClick)
+        
+        newGameDiv.appendChild(newGameBtn)
+    } 
+}
+
+
+function handleNewGameClick() {
+    let newGameDiv = document.getElementById("new-game")
+    newGameDiv.innerHTML = ''
+    newGameDiv.innerText = 'Choose Difficulty Level!'
+    let easyBtn = document.createElement('button')
+    let medBtn = document.createElement('button')
+    let hardBtn = document.createElement('button')
+    
+    let br1 = document.createElement('br')
+    let br2 = document.createElement('br')
+    let br3 = document.createElement('br')
+
+    easyBtn.innerText = 'Easy'
+    medBtn.innerText = 'Medium'
+    hardBtn.innerText = 'Hard'
+
+    easyBtn.addEventListener('click', (e) => postGame(e, 'Easy'))
+    medBtn.addEventListener('click', (e) => postGame(e, 'Medium'))
+    hardBtn.addEventListener('click', (e) => postGame(e, 'Hard'))
+
+    newGameDiv.append(br1, easyBtn, br2, medBtn, br3, hardBtn)
+}
+
+
+function startNewGame(statesGame) {
+    let timeLimit = 0
+    let newGameDiv = document.getElementById('new-game')
+    newGameDiv.innerHTML = ''
+    let timer = document.getElementById('timer')
+    let startBtn = document.createElement('button')
+    startBtn.innerText = 'Start!'
+    startBtn.id = "start-btn"
+    newGameDiv.append(startBtn)
+
+    if (statesGame.difficulty === "Easy") {
+        //3 min for easy game
+        timeLimit = 60 * 3 
+    } else if (statesGame.difficulty === "Medium") {
+        //2 min for med game
+        timeLimit = 60 * 2
+    } else {
+        // 1 min for hard game
+        //currently set to a few seconds for testing only
+        timeLimit = 60 * 0.1
+    }
+
+    minutes = parseInt(timeLimit / 60, 10);
+    seconds = parseInt(timeLimit % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes
+    seconds = seconds < 10 ? "0" + seconds : seconds
+
+    timer.innerText = minutes + ":" + seconds
+
+    startBtn.addEventListener('click', () => startTimer(timeLimit))
+}
+
+function startTimer(duration) {
+    display = document.getElementById('timer')
+    let newGameDiv = document.getElementById('new-game')
+    newGameDiv.innerHTML = '' 
+    let timer = duration, minutes, seconds;
+    let countdown = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes
+        seconds = seconds < 10 ? "0" + seconds : seconds
+
+        display.textContent = minutes + ":" + seconds
+
+        if (--timer < 0) {
+            clearInterval(countdown)
+            
+            //trigger a function here to stop the game and send the score
+        }
+    }, 1000);
+}
+
+// function checkGameOver() {
+//     if (score === 50) {
+//         endGame()
+//     }
+// }
