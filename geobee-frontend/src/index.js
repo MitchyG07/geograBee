@@ -26,6 +26,7 @@ function handleLoginSubmit(e, username){
         document.getElementById("login-form").remove()
         document.getElementById('login').innerHTML = ''
         newGame()
+        getUserScores()
     })
 }
 
@@ -62,8 +63,10 @@ function postScore(gameFinalScore) {
     })
 }
 
-function getAllScores() {
-//fetch to get all user scores
+function getUserScores() {
+    fetch(USER_URL + `/${currentUser.id}`)
+    .then(resp => resp.json())    
+    .then(userResultsObj => renderUserResults(userResultsObj))
 }
 
 const states = [
@@ -329,3 +332,60 @@ function endGame(){
 // Go Mariners 
 //lol
 
+function renderUserResults(userResultsObj) {
+    let userResultsDiv = document.getElementById('user-results')
+    
+    let tableTitle = document.createElement('h3')
+    tableTitle.innerText = "Your Games" 
+    userResultsDiv.appendChild(tableTitle)
+
+    let resultsTable = document.createElement('table')
+
+    let headerRow = document.createElement('tr')
+    let headerColDiff = document.createElement('th')
+    let headerColScore = document.createElement('th')
+
+    headerColDiff.innerText = "Difficulty"
+    headerColScore.innerText = "Score"
+
+    headerRow.append(headerColDiff, headerColScore)
+    resultsTable.appendChild(headerRow)
+
+    for (key in userResultsObj) {
+        let row = document.createElement('tr')
+        let tdDiff = document.createElement('td')
+        let tdScore = document.createElement('td')
+
+        tdDiff.innerText = key 
+        tdScore.innerText = userResultsObj[key].total
+
+        row.append(tdDiff, tdScore)
+        resultsTable.appendChild(row)
+    }
+
+    userResultsDiv.appendChild(resultsTable)
+
+    let aggScore = userAggScore(userResultsObj)
+    let avgScore = aggScore / (Object.keys(userResultsObj)).length
+
+    let totalsTitle = document.createElement('h3')
+    totalsTitle.innerText = "Your Stats"
+
+    let spanAggregate = document.createElement('span')
+    let spanAvg = document.createElement('span')
+    let br = document.createElement('br')
+
+    spanAggregate.innerText = `Aggregate Score: ${aggScore}`
+    spanAvg.innerText = `Average Score: ${avgScore}`
+
+    userResultsDiv.append(totalsTitle, spanAggregate, br, spanAvg)
+
+}
+
+function userAggScore(userResultsObj) {
+    aggScore = 0 
+    Object.values(userResultsObj).forEach(obj => {
+        aggScore += obj.total
+    })
+    return aggScore
+}
