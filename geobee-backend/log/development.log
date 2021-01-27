@@ -3683,3 +3683,1555 @@ Processing by UsersController#show as */*
 Completed 200 OK in 157ms (Views: 13.9ms | ActiveRecord: 14.0ms | Allocations: 1754548)
 
 
+Started POST "/users" for ::1 at 2021-01-27 14:25:04 -0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 6191)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:25:05 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+Completed 200 OK in 30ms (Views: 0.6ms | ActiveRecord: 1.7ms | Allocations: 15154)
+
+
+Started POST "/states_games" for ::1 at 2021-01-27 14:25:11 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (0.7ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 22:25:11.330820"], ["updated_at", "2021-01-27 22:25:11.330820"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 2049)
+
+
+Started POST "/scores" for ::1 at 2021-01-27 14:25:28 -0800
+Processing by ScoresController#create as */*
+  Parameters: {"total"=>0, "user_id"=>1, "states_game_id"=>6, "score"=>{"total"=>0, "user_id"=>1, "states_game_id"=>6}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" WHERE "states_games"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mScore Create (0.5ms)[0m  [1m[32mINSERT INTO "scores" ("total", "user_id", "states_game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["total", 0], ["user_id", 1], ["states_game_id", 6], ["created_at", "2021-01-27 22:25:28.190398"], ["updated_at", "2021-01-27 22:25:28.190398"]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 2.0ms | Allocations: 3811)
+
+
+Started POST "/users" for ::1 at 2021-01-27 14:26:22 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 738)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:26:22 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 4214)
+
+
+Started POST "/states_games" for ::1 at 2021-01-27 14:26:38 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (0.3ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 22:26:38.495698"], ["updated_at", "2021-01-27 22:26:38.495698"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 1767)
+
+
+Started POST "/scores" for ::1 at 2021-01-27 14:27:01 -0800
+Processing by ScoresController#create as */*
+  Parameters: {"total"=>0, "user_id"=>1, "states_game_id"=>7, "score"=>{"total"=>0, "user_id"=>1, "states_game_id"=>7}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" WHERE "states_games"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mScore Create (0.6ms)[0m  [1m[32mINSERT INTO "scores" ("total", "user_id", "states_game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["total", 0], ["user_id", 1], ["states_game_id", 7], ["created_at", "2021-01-27 22:27:01.276524"], ["updated_at", "2021-01-27 22:27:01.276524"]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 2.2ms | Allocations: 3326)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:27:01 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.4ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 1.6ms | Allocations: 4771)
+
+
+Started POST "/users" for ::1 at 2021-01-27 14:27:49 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 722)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:27:49 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 4773)
+
+
+Started POST "/states_games" for ::1 at 2021-01-27 14:27:54 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (0.3ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 22:27:54.159455"], ["updated_at", "2021-01-27 22:27:54.159455"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 1750)
+
+
+Started POST "/scores" for ::1 at 2021-01-27 14:28:18 -0800
+Processing by ScoresController#create as */*
+  Parameters: {"total"=>1, "user_id"=>1, "states_game_id"=>8, "score"=>{"total"=>1, "user_id"=>1, "states_game_id"=>8}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" WHERE "states_games"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mScore Create (0.5ms)[0m  [1m[32mINSERT INTO "scores" ("total", "user_id", "states_game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["total", 1], ["user_id", 1], ["states_game_id", 8], ["created_at", "2021-01-27 22:28:18.128474"], ["updated_at", "2021-01-27 22:28:18.128474"]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 3326)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:28:18 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 1.7ms | Allocations: 5331)
+
+
+Started POST "/users" for ::1 at 2021-01-27 14:29:08 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 722)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:29:08 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 5332)
+
+
+Started POST "/states_games" for ::1 at 2021-01-27 14:29:14 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (0.4ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 22:29:14.985554"], ["updated_at", "2021-01-27 22:29:14.985554"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 2.1ms | Allocations: 1749)
+
+
+Started POST "/users" for ::1 at 2021-01-27 14:29:44 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 720)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:29:44 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 5331)
+
+
+Started POST "/states_games" for ::1 at 2021-01-27 14:29:48 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (0.4ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 22:29:48.581773"], ["updated_at", "2021-01-27 22:29:48.581773"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 1749)
+
+
+Started POST "/scores" for ::1 at 2021-01-27 14:30:07 -0800
+Processing by ScoresController#create as */*
+  Parameters: {"total"=>2, "user_id"=>1, "states_game_id"=>10, "score"=>{"total"=>2, "user_id"=>1, "states_game_id"=>10}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mStatesGame Load (0.0ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" WHERE "states_games"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mScore Create (0.5ms)[0m  [1m[32mINSERT INTO "scores" ("total", "user_id", "states_game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["total", 2], ["user_id", 1], ["states_game_id", 10], ["created_at", "2021-01-27 22:30:07.237954"], ["updated_at", "2021-01-27 22:30:07.237954"]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 3323)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:30:07 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 5889)
+
+
+Started POST "/users" for ::1 at 2021-01-27 14:33:25 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 720)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:33:25 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 5889)
+
+
+Started POST "/states_games" for ::1 at 2021-01-27 14:33:31 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (0.4ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 22:33:31.308720"], ["updated_at", "2021-01-27 22:33:31.308720"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 1749)
+
+
+Started POST "/scores" for ::1 at 2021-01-27 14:33:51 -0800
+Processing by ScoresController#create as */*
+  Parameters: {"total"=>1, "user_id"=>1, "states_game_id"=>11, "score"=>{"total"=>1, "user_id"=>1, "states_game_id"=>11}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" WHERE "states_games"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mScore Create (0.4ms)[0m  [1m[32mINSERT INTO "scores" ("total", "user_id", "states_game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["total", 1], ["user_id", 1], ["states_game_id", 11], ["created_at", "2021-01-27 22:33:51.791726"], ["updated_at", "2021-01-27 22:33:51.791726"]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 3323)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:33:51 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+Completed 200 OK in 16ms (Views: 0.5ms | ActiveRecord: 2.2ms | Allocations: 6450)
+
+
+Started POST "/users" for ::1 at 2021-01-27 14:34:44 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 720)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:34:44 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+Completed 200 OK in 23ms (Views: 0.4ms | ActiveRecord: 1.2ms | Allocations: 6451)
+
+
+Started POST "/users" for ::1 at 2021-01-27 14:35:30 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 2616)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:35:30 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+Completed 500 Internal Server Error in 385222ms (ActiveRecord: 2.3ms | Allocations: 70557)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `show'
+app/controllers/users_controller.rb:18:in `show'
+Started POST "/states_games" for ::1 at 2021-01-27 14:41:56 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (1.0ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 22:41:56.351371"], ["updated_at", "2021-01-27 22:41:56.351371"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 59ms (Views: 4.8ms | ActiveRecord: 2.8ms | Allocations: 595921)
+
+
+Started POST "/users" for ::1 at 2021-01-27 14:42:06 -0800
+  
+SyntaxError (/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:40: syntax error, unexpected '=', expecting '}'
+...each{|i| result{i.difficulty} = i.scores[0]}
+...                              ^
+/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:40: syntax error, unexpected '}', expecting end
+...lt{i.difficulty} = i.scores[0]}
+...                              ^):
+  
+app/controllers/users_controller.rb:40: syntax error, unexpected '=', expecting '}'
+app/controllers/users_controller.rb:40: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:40: syntax error, unexpected '=', expecting '}'
+app/controllers/users_controller.rb:40: syntax error, unexpected '}', expecting end
+Started GET "/users/undefined" for ::1 at 2021-01-27 14:42:08 -0800
+  
+SyntaxError (/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:40: syntax error, unexpected '=', expecting '}'
+...each{|i| result{i.difficulty} = i.scores[0]}
+...                              ^
+/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:40: syntax error, unexpected '}', expecting end
+...lt{i.difficulty} = i.scores[0]}
+...                              ^):
+  
+app/controllers/users_controller.rb:40: syntax error, unexpected '=', expecting '}'
+app/controllers/users_controller.rb:40: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:40: syntax error, unexpected '=', expecting '}'
+app/controllers/users_controller.rb:40: syntax error, unexpected '}', expecting end
+Started POST "/users" for ::1 at 2021-01-27 14:42:43 -0800
+  
+SyntaxError (/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:33: syntax error, unexpected '=', expecting '}'
+...each{|i| result{i.difficulty} = i.scores[0]}
+...                              ^
+/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:33: syntax error, unexpected '}', expecting end
+...lt{i.difficulty} = i.scores[0]}
+...                              ^):
+  
+app/controllers/users_controller.rb:33: syntax error, unexpected '=', expecting '}'
+app/controllers/users_controller.rb:33: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:33: syntax error, unexpected '=', expecting '}'
+app/controllers/users_controller.rb:33: syntax error, unexpected '}', expecting end
+Started GET "/users/undefined" for ::1 at 2021-01-27 14:42:45 -0800
+  
+SyntaxError (/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:33: syntax error, unexpected '=', expecting '}'
+...each{|i| result{i.difficulty} = i.scores[0]}
+...                              ^
+/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:33: syntax error, unexpected '}', expecting end
+...lt{i.difficulty} = i.scores[0]}
+...                              ^):
+  
+app/controllers/users_controller.rb:33: syntax error, unexpected '=', expecting '}'
+app/controllers/users_controller.rb:33: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:33: syntax error, unexpected '=', expecting '}'
+app/controllers/users_controller.rb:33: syntax error, unexpected '}', expecting end
+Started POST "/users" for ::1 at 2021-01-27 14:43:58 -0800
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `create'
+Completed 200 OK in 84ms (Views: 7.0ms | ActiveRecord: 14.5ms | Allocations: 895908)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:44:00 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 500 Internal Server Error in 1303ms (ActiveRecord: 1.0ms | Allocations: 14782080)
+
+
+  
+NoMethodError (undefined method `user_results_object' for #<UsersController:0x007fed633e9150>):
+  
+app/controllers/users_controller.rb:11:in `show'
+Started POST "/users" for ::1 at 2021-01-27 14:44:20 -0800
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26:in `create'
+Completed 200 OK in 121ms (Views: 11.9ms | ActiveRecord: 17.1ms | Allocations: 895908)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:44:22 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 500 Internal Server Error in 1140ms (ActiveRecord: 1.0ms | Allocations: 14745710)
+
+
+  
+NoMethodError (undefined method `user_results_object' for #<UsersController:0x007fed63451ca0>):
+  
+app/controllers/users_controller.rb:11:in `show'
+Started POST "/users" for ::1 at 2021-01-27 14:44:55 -0800
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Completed 200 OK in 77ms (Views: 8.8ms | ActiveRecord: 17.1ms | Allocations: 895915)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:44:57 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (1.6ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mScore Load (1.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (3.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (3.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (3.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:15:in `block in show'
+Completed 500 Internal Server Error in 163344ms (ActiveRecord: 37.2ms | Allocations: 5891408)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `show'
+app/controllers/users_controller.rb:18:in `show'
+Started POST "/users" for ::1 at 2021-01-27 14:47:40 -0800
+Started POST "/users" for ::1 at 2021-01-27 14:47:41 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Completed 200 OK in 36ms (Views: 7.8ms | ActiveRecord: 1.2ms | Allocations: 368691)
+
+
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Completed 200 OK in 40ms (Views: 7.2ms | ActiveRecord: 3.9ms | Allocations: 411339)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:47:41 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 6ms (Allocations: 36856)
+
+
+  
+SyntaxError (/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/models/user.rb:6: syntax error, unexpected '\n', expecting =>):
+  
+app/models/user.rb:6: syntax error, unexpected '\n', expecting =>
+app/models/user.rb:6: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:9:in `show'
+Started POST "/users" for ::1 at 2021-01-27 14:47:49 -0800
+  
+SyntaxError (/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/models/user.rb:6: syntax error, unexpected '\n', expecting =>):
+  
+app/models/user.rb:6: syntax error, unexpected '\n', expecting =>
+app/models/user.rb:6: syntax error, unexpected '\n', expecting =>
+Started GET "/users/undefined" for ::1 at 2021-01-27 14:47:50 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"undefined"}
+Completed 500 Internal Server Error in 5ms (Allocations: 31323)
+
+
+  
+SyntaxError (/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/models/user.rb:6: syntax error, unexpected '\n', expecting =>):
+  
+app/models/user.rb:6: syntax error, unexpected '\n', expecting =>
+app/models/user.rb:6: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:9:in `show'
+Started POST "/users" for ::1 at 2021-01-27 14:49:26 -0800
+  
+SyntaxError (/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:18: syntax error, unexpected =>, expecting '}'
+..._games.map {|i| i.difficulty => i.scores[0]}
+...                             ^~
+/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:18: syntax error, unexpected '}', expecting end
+...i| i.difficulty => i.scores[0]}
+...                              ^):
+  
+app/controllers/users_controller.rb:18: syntax error, unexpected =>, expecting '}'
+app/controllers/users_controller.rb:18: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:18: syntax error, unexpected =>, expecting '}'
+app/controllers/users_controller.rb:18: syntax error, unexpected '}', expecting end
+Started GET "/users/undefined" for ::1 at 2021-01-27 14:49:29 -0800
+  
+SyntaxError (/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:18: syntax error, unexpected =>, expecting '}'
+..._games.map {|i| i.difficulty => i.scores[0]}
+...                             ^~
+/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:18: syntax error, unexpected '}', expecting end
+...i| i.difficulty => i.scores[0]}
+...                              ^):
+  
+app/controllers/users_controller.rb:18: syntax error, unexpected =>, expecting '}'
+app/controllers/users_controller.rb:18: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:18: syntax error, unexpected =>, expecting '}'
+app/controllers/users_controller.rb:18: syntax error, unexpected '}', expecting end
+Started POST "/users" for ::1 at 2021-01-27 14:50:27 -0800
+  
+SyntaxError (/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/models/user.rb:6: syntax error, unexpected '\n', expecting =>):
+  
+app/models/user.rb:6: syntax error, unexpected '\n', expecting =>
+app/models/user.rb:6: syntax error, unexpected '\n', expecting =>
+Started GET "/users/undefined" for ::1 at 2021-01-27 14:50:29 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"undefined"}
+Completed 500 Internal Server Error in 5ms (Allocations: 36854)
+
+
+  
+SyntaxError (/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/models/user.rb:6: syntax error, unexpected '\n', expecting =>):
+  
+app/models/user.rb:6: syntax error, unexpected '\n', expecting =>
+app/models/user.rb:6: syntax error, unexpected '\n', expecting =>
+app/controllers/users_controller.rb:9:in `show'
+Started POST "/users" for ::1 at 2021-01-27 14:51:28 -0800
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26:in `create'
+Completed 200 OK in 78ms (Views: 7.3ms | ActiveRecord: 14.7ms | Allocations: 895924)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:51:29 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.3ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ? /* loading for inspect */ LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  [1m[36mCACHE StatesGame Load (0.0ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ? /* loading for inspect */ LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  [1m[36mStatesGame Load (0.4ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ (byebug):1:in `map'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ (byebug):1:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ (byebug):1:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ (byebug):1:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ (byebug):1:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ (byebug):1:in `block in show'
+  [1m[36mScore Load (0.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ (byebug):1:in `block in show'
+  [1m[36mScore Load (0.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ (byebug):1:in `block in show'
+  [1m[36mScore Load (0.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ (byebug):1:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ (byebug):1:in `block in show'
+Completed 500 Internal Server Error in 102373ms (ActiveRecord: 8.7ms | Allocations: 348397)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `show'
+app/controllers/users_controller.rb:12:in `show'
+Started POST "/users" for ::1 at 2021-01-27 14:53:12 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:26:in `create'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26:in `create'
+Completed 200 OK in 448ms (Views: 7.0ms | ActiveRecord: 2.8ms | Allocations: 5151400)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:53:13 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+Completed 500 Internal Server Error in 13814ms (ActiveRecord: 23.2ms | Allocations: 1700618)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `show'
+app/controllers/users_controller.rb:12:in `show'
+Started POST "/users" for ::1 at 2021-01-27 14:53:28 -0800
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `create'
+Completed 200 OK in 86ms (Views: 7.7ms | ActiveRecord: 19.2ms | Allocations: 895908)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:53:30 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (6.8ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `map'
+  [1m[36mScore Load (1.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.5ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (1.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+Completed 200 OK in 708ms (Views: 57.9ms | ActiveRecord: 46.2ms | Allocations: 6317832)
+
+
+Started POST "/users" for ::1 at 2021-01-27 14:53:41 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `create'
+Completed 200 OK in 47ms (Views: 10.3ms | ActiveRecord: 0.9ms | Allocations: 378114)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:53:41 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (1.0ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `map'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (5.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.5ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+Completed 200 OK in 370ms (Views: 57.5ms | ActiveRecord: 25.9ms | Allocations: 3554908)
+
+
+Started POST "/users" for ::1 at 2021-01-27 14:54:05 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `create'
+Completed 200 OK in 42ms (Views: 7.1ms | ActiveRecord: 5.5ms | Allocations: 378114)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:54:05 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (1.0ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `map'
+  [1m[36mScore Load (3.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.4ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+Completed 200 OK in 371ms (Views: 61.2ms | ActiveRecord: 24.0ms | Allocations: 3557393)
+
+
+Started POST "/users" for ::1 at 2021-01-27 14:56:47 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `create'
+Completed 200 OK in 47ms (Views: 11.9ms | ActiveRecord: 1.2ms | Allocations: 378114)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:56:47 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (1.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `map'
+  [1m[36mScore Load (4.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (4.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (4.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (4.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (4.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (1.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (1.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (1.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+Completed 200 OK in 368ms (Views: 52.3ms | ActiveRecord: 33.3ms | Allocations: 3554909)
+
+
+Started POST "/users" for ::1 at 2021-01-27 14:57:28 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `create'
+Completed 200 OK in 35ms (Views: 7.3ms | ActiveRecord: 5.4ms | Allocations: 378114)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:57:28 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (1.0ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `map'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+Completed 200 OK in 306ms (Views: 49.9ms | ActiveRecord: 18.5ms | Allocations: 3557337)
+
+
+Started POST "/users" for ::1 at 2021-01-27 14:58:02 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `create'
+Completed 200 OK in 35ms (Views: 7.8ms | ActiveRecord: 0.9ms | Allocations: 378114)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:58:03 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (1.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `map'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (1.4ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (4.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+Completed 200 OK in 313ms (Views: 54.1ms | ActiveRecord: 19.9ms | Allocations: 3555678)
+
+
+Started POST "/users" for ::1 at 2021-01-27 14:58:46 -0800
+  
+SyntaxError (/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:18: syntax error, unexpected =>, expecting '}'
+..._games.map {|i| i.difficulty => i.scores[0]}
+...                             ^~
+/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:18: syntax error, unexpected '}', expecting end
+...i| i.difficulty => i.scores[0]}
+...                              ^):
+  
+app/controllers/users_controller.rb:18: syntax error, unexpected =>, expecting '}'
+app/controllers/users_controller.rb:18: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:18: syntax error, unexpected =>, expecting '}'
+app/controllers/users_controller.rb:18: syntax error, unexpected '}', expecting end
+Started GET "/users/undefined" for ::1 at 2021-01-27 14:58:48 -0800
+  
+SyntaxError (/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:18: syntax error, unexpected =>, expecting '}'
+..._games.map {|i| i.difficulty => i.scores[0]}
+...                             ^~
+/Users/rachelcross/Flatiron/project/weds/p-3/geoBee/geobee-backend/app/controllers/users_controller.rb:18: syntax error, unexpected '}', expecting end
+...i| i.difficulty => i.scores[0]}
+...                              ^):
+  
+app/controllers/users_controller.rb:18: syntax error, unexpected =>, expecting '}'
+app/controllers/users_controller.rb:18: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:18: syntax error, unexpected =>, expecting '}'
+app/controllers/users_controller.rb:18: syntax error, unexpected '}', expecting end
+Started POST "/users" for ::1 at 2021-01-27 14:59:07 -0800
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `create'
+Completed 200 OK in 83ms (Views: 8.0ms | ActiveRecord: 12.2ms | Allocations: 895924)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 14:59:08 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (4.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `map'
+  [1m[36mScore Load (1.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (3.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+  [1m[36mScore Load (1.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:18:in `block in show'
+Completed 200 OK in 575ms (Views: 55.8ms | ActiveRecord: 32.8ms | Allocations: 6317833)
+
+
+Started POST "/users" for ::1 at 2021-01-27 15:02:06 -0800
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 200 OK in 87ms (Views: 7.9ms | ActiveRecord: 12.3ms | Allocations: 895909)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 15:02:08 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (1.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `map'
+  [1m[36mScore Load (4.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+Completed 200 OK in 616ms (Views: 60.1ms | ActiveRecord: 36.6ms | Allocations: 6317828)
+
+
+Started POST "/users" for ::1 at 2021-01-27 15:05:14 -0800
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 200 OK in 73ms (Views: 9.0ms | ActiveRecord: 21.1ms | Allocations: 895923)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 15:05:16 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (1.3ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `map'
+  [1m[36mScore Load (1.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (1.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+Completed 200 OK in 532ms (Views: 49.6ms | ActiveRecord: 24.1ms | Allocations: 6318596)
+
+
+Started POST "/users" for ::1 at 2021-01-27 15:08:39 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 200 OK in 37ms (Views: 8.8ms | ActiveRecord: 0.9ms | Allocations: 378114)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 15:08:39 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (1.0ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `map'
+  [1m[36mScore Load (1.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+Completed 200 OK in 305ms (Views: 51.3ms | ActiveRecord: 12.6ms | Allocations: 3554908)
+
+
+Started POST "/users" for ::1 at 2021-01-27 15:12:43 -0800
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 200 OK in 76ms (Views: 8.6ms | ActiveRecord: 17.6ms | Allocations: 895906)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 15:12:45 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (4.3ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `map'
+  [1m[36mScore Load (1.4ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (4.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (4.4ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+Completed 200 OK in 567ms (Views: 53.4ms | ActiveRecord: 43.3ms | Allocations: 6320926)
+
+
+Started POST "/users" for ::1 at 2021-01-27 15:13:05 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 200 OK in 40ms (Views: 9.6ms | ActiveRecord: 4.4ms | Allocations: 378114)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 15:13:05 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (1.0ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `map'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (4.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (1.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+Completed 200 OK in 330ms (Views: 53.4ms | ActiveRecord: 22.5ms | Allocations: 3555746)
+
+
+Started POST "/states_games" for ::1 at 2021-01-27 15:13:43 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (1.5ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 23:13:43.571166"], ["updated_at", "2021-01-27 23:13:43.571166"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 77ms (Views: 6.2ms | ActiveRecord: 3.9ms | Allocations: 764861)
+
+
+Started POST "/scores" for ::1 at 2021-01-27 15:14:00 -0800
+Processing by ScoresController#create as */*
+  Parameters: {"total"=>0, "user_id"=>1, "states_game_id"=>13, "score"=>{"total"=>0, "user_id"=>1, "states_game_id"=>13}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mStatesGame Load (6.6ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" WHERE "states_games"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mScore Create (1.4ms)[0m  [1m[32mINSERT INTO "scores" ("total", "user_id", "states_game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["total", 0], ["user_id", 1], ["states_game_id", 13], ["created_at", "2021-01-27 23:14:00.509864"], ["updated_at", "2021-01-27 23:14:00.509864"]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+Completed 200 OK in 197ms (Views: 6.4ms | ActiveRecord: 11.7ms | Allocations: 1777336)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 15:14:00 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (4.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `map'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 13]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+Completed 200 OK in 352ms (Views: 57.5ms | ActiveRecord: 18.9ms | Allocations: 3888871)
+
+
+Started POST "/states_games" for ::1 at 2021-01-27 15:14:10 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Medium", "states_game"=>{"difficulty"=>"Medium"}}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (1.5ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Medium"], ["created_at", "2021-01-27 23:14:10.533162"], ["updated_at", "2021-01-27 23:14:10.533162"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 78ms (Views: 6.5ms | ActiveRecord: 4.1ms | Allocations: 738641)
+
+
+Started POST "/scores" for ::1 at 2021-01-27 15:17:54 -0800
+Processing by ScoresController#create as */*
+  Parameters: {"total"=>8, "user_id"=>1, "states_game_id"=>14, "score"=>{"total"=>8, "user_id"=>1, "states_game_id"=>14}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mStatesGame Load (1.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" WHERE "states_games"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mScore Create (1.4ms)[0m  [1m[32mINSERT INTO "scores" ("total", "user_id", "states_game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["total", 8], ["user_id", 1], ["states_game_id", 14], ["created_at", "2021-01-27 23:17:54.907772"], ["updated_at", "2021-01-27 23:17:54.907772"]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+Completed 200 OK in 175ms (Views: 7.6ms | ActiveRecord: 6.6ms | Allocations: 1451430)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 15:17:55 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (5.3ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `map'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (1.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (4.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (1.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 13]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 14]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+Completed 200 OK in 409ms (Views: 70.8ms | ActiveRecord: 24.8ms | Allocations: 4222753)
+
+
+Started POST "/users" for ::1 at 2021-01-27 15:18:23 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 200 OK in 44ms (Views: 7.4ms | ActiveRecord: 1.5ms | Allocations: 378114)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 15:18:23 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (4.4ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `map'
+  [1m[36mScore Load (4.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (1.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 13]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 14]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+Completed 200 OK in 405ms (Views: 67.8ms | ActiveRecord: 18.2ms | Allocations: 4222753)
+
+
+Started POST "/states_games" for ::1 at 2021-01-27 15:18:40 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (4.6ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 23:18:40.533052"], ["updated_at", "2021-01-27 23:18:40.533052"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 80ms (Views: 9.9ms | ActiveRecord: 6.7ms | Allocations: 738641)
+
+
+Started POST "/scores" for ::1 at 2021-01-27 15:18:57 -0800
+Processing by ScoresController#create as */*
+  Parameters: {"total"=>0, "user_id"=>1, "states_game_id"=>15, "score"=>{"total"=>0, "user_id"=>1, "states_game_id"=>15}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mStatesGame Load (4.4ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" WHERE "states_games"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mScore Create (1.5ms)[0m  [1m[32mINSERT INTO "scores" ("total", "user_id", "states_game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["total", 0], ["user_id", 1], ["states_game_id", 15], ["created_at", "2021-01-27 23:18:58.052021"], ["updated_at", "2021-01-27 23:18:58.052021"]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+Completed 200 OK in 179ms (Views: 7.7ms | ActiveRecord: 14.7ms | Allocations: 1448945)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 15:18:58 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (3.7ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `map'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (1.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (1.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.6ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 13]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (1.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 14]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 15]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+Completed 200 OK in 434ms (Views: 73.6ms | ActiveRecord: 21.1ms | Allocations: 4556635)
+
+
+Started POST "/users" for ::1 at 2021-01-27 15:23:25 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 200 OK in 45ms (Views: 11.3ms | ActiveRecord: 1.1ms | Allocations: 378114)
+
+
+Started GET "/users/1" for ::1 at 2021-01-27 15:23:25 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (1.3ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `map'
+  [1m[36mScore Load (4.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (1.0ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 3]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 4]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 5]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (3.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 6]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 7]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 8]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.9ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 10]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 11]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (4.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 13]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 14]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 15]]
+  ↳ app/controllers/users_controller.rb:14:in `block in show'
+Completed 200 OK in 459ms (Views: 77.1ms | ActiveRecord: 22.3ms | Allocations: 4556635)
+
+
