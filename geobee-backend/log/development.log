@@ -1382,3 +1382,147 @@ Processing by StatesGamesController#create as */*
 Completed 200 OK in 70ms (Views: 7.6ms | ActiveRecord: 5.4ms | Allocations: 739411)
 
 
+Started POST "/users" for ::1 at 2021-01-26 20:19:00 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 54ms (Views: 9.2ms | ActiveRecord: 5.5ms | Allocations: 540088)
+
+
+Started POST "/states_games" for ::1 at 2021-01-26 20:19:05 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (1.7ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 04:19:05.175530"], ["updated_at", "2021-01-27 04:19:05.175530"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 70ms (Views: 4.6ms | ActiveRecord: 6.9ms | Allocations: 741074)
+
+
+Started POST "/users" for ::1 at 2021-01-26 20:20:16 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 37ms (Views: 9.5ms | ActiveRecord: 0.9ms | Allocations: 378114)
+
+
+Started POST "/states_games" for ::1 at 2021-01-26 20:20:22 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (1.2ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 04:20:22.101075"], ["updated_at", "2021-01-27 04:20:22.101075"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 74ms (Views: 6.4ms | ActiveRecord: 2.7ms | Allocations: 738641)
+
+
+Started POST "/users" for ::1 at 2021-01-26 20:23:18 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (13.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 106ms (Views: 22.3ms | ActiveRecord: 13.9ms | Allocations: 378114)
+
+
+Started POST "/states_games" for ::1 at 2021-01-26 20:23:20 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (8.1ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 04:23:20.784367"], ["updated_at", "2021-01-27 04:23:20.784367"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 203ms (Views: 22.4ms | ActiveRecord: 10.9ms | Allocations: 738641)
+
+
+Started POST "/users" for ::1 at 2021-01-26 20:30:58 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 94ms (Views: 7.8ms | ActiveRecord: 3.1ms | Allocations: 540088)
+
+
+Started POST "/states_games" for ::1 at 2021-01-26 20:31:02 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (1.4ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 04:31:02.775945"], ["updated_at", "2021-01-27 04:31:02.775945"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 77ms (Views: 6.1ms | ActiveRecord: 4.3ms | Allocations: 738641)
+
+
+Started POST "/users" for ::1 at 2021-01-26 20:34:57 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 37ms (Views: 6.4ms | ActiveRecord: 3.3ms | Allocations: 378114)
+
+
+Started POST "/states_games" for ::1 at 2021-01-26 20:34:59 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (3.9ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 04:34:59.791126"], ["updated_at", "2021-01-27 04:34:59.791126"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 70ms (Views: 7.4ms | ActiveRecord: 9.2ms | Allocations: 738641)
+
+
+Started POST "/users" for ::1 at 2021-01-26 20:37:36 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 32ms (Views: 6.3ms | ActiveRecord: 3.3ms | Allocations: 378114)
+
+
+Started POST "/states_games" for ::1 at 2021-01-26 20:37:39 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (1.5ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 04:37:39.140832"], ["updated_at", "2021-01-27 04:37:39.140832"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 74ms (Views: 9.7ms | ActiveRecord: 3.9ms | Allocations: 738641)
+
+
+Started POST "/users" for ::1 at 2021-01-26 20:39:33 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 37ms (Views: 6.9ms | ActiveRecord: 0.8ms | Allocations: 378114)
+
+
+Started POST "/states_games" for ::1 at 2021-01-26 20:39:35 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (1.6ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-27 04:39:35.924773"], ["updated_at", "2021-01-27 04:39:35.924773"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 72ms (Views: 5.8ms | ActiveRecord: 4.0ms | Allocations: 738641)
+
+

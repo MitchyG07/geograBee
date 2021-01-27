@@ -8,7 +8,6 @@ let currentUser
 let currentGame
 login()
 
-
 let score = 0
 
 function handleLoginSubmit(e, username){
@@ -29,7 +28,7 @@ function handleLoginSubmit(e, username){
     })
 }
 
-function postGame(e, difficulty) {
+function postGame(difficulty) {
     fetch(STATESGAME_URL, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'
@@ -41,11 +40,11 @@ function postGame(e, difficulty) {
         startNewGame(statesGame)
         currentGame = statesGame
         playing = true
-        
-        
-        //send to a new function that has 'start' button, along with timer
-        //that will start once button is clicked
     })
+}
+
+function postScore(gameFinalScore) {
+    console.log(gameFinalScore)
 }
 
 const states = [
@@ -132,6 +131,7 @@ function handleSubmit(e, state) {
     if (e.target.state.value.toLowerCase() == state.toLowerCase()) {
         score++
         scoreKeeper.innerText = `Current Score: ${score}`
+        checkGameOver()
     }
 }
 
@@ -189,9 +189,9 @@ function handleNewGameClick() {
     medBtn.innerText = 'Medium'
     hardBtn.innerText = 'Hard'
 
-    easyBtn.addEventListener('click', (e) => postGame(e, 'Easy'))
-    medBtn.addEventListener('click', (e) => postGame(e, 'Medium'))
-    hardBtn.addEventListener('click', (e) => postGame(e, 'Hard'))
+    easyBtn.addEventListener('click', () => postGame('Easy'))
+    medBtn.addEventListener('click', () => postGame('Medium'))
+    hardBtn.addEventListener('click', () => postGame('Hard'))
 
     newGameDiv.append(br1, easyBtn, br2, medBtn, br3, hardBtn)
 }
@@ -216,7 +216,7 @@ function startNewGame(statesGame) {
     } else {
         // 1 min for hard game
         //currently set to a few seconds for testing only
-        timeLimit = 60 * 0.1
+        timeLimit = 60 * 0.2
     }
 
     minutes = parseInt(timeLimit / 60, 10);
@@ -246,14 +246,33 @@ function startTimer(duration) {
 
         if (--timer < 0) {
             clearInterval(countdown)
-            
+            endGame()
             //trigger a function here to stop the game and send the score
         }
     }, 1000);
 }
 
-// function checkGameOver() {
-//     if (score === 50) {
-//         endGame()
-//     }
-// }
+function checkGameOver() {
+    //a call to this function is included in state handleSubmit
+    //currently line 134
+    if (score === 50) {
+        endGame()
+    }
+}
+
+function endGame(){
+    let div = document.getElementById('state-form-block')
+    div.innerHTML = ''
+    let scoreKeeper = document.getElementById('score-keeper')
+    scoreKeeper.innerText = `Final Score: ${score}`
+
+    let gameFinalScore = {
+        total: score,
+        user_id: currentUser.id,
+        states_game_id: currentGame.id
+    }
+    //add toggle for form no longer being avail when game ends
+    //also determine where playing should be set to false
+    //and current user + game set to undefined
+    postScore(gameFinalScore)
+}
