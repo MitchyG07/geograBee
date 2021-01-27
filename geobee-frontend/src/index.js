@@ -100,7 +100,11 @@ const states = [
     {symbol: "WY" , name: "Wyoming"},
 ]
 
+//JS hit by JQuery event 
 function convertStateName(symbol) {
+    //global variable 
+    selectedState = symbol
+    selectedState.id = symbol.name
     let currentState = states.find(state => state.symbol == symbol.name)
     let state = currentState.name
     handleClick(state)
@@ -132,8 +136,25 @@ function handleSubmit(e, state) {
         score++
         scoreKeeper.innerText = `Current Score: ${score}`
         checkGameOver()
+        correctAnswer()
     }
 }
+
+function correctAnswer() {
+    let map = document.getElementById('map')
+    let svg = document.createElement('svg')
+    svg.height = "300"
+    svg.width = "300"
+    svg.xmlns = "http://www.w3.org/2000/svg"
+    svg.viewBox="0 0 1077 630"
+    let path = document.createElement('path')
+    path = selectedState.hitArea[0]
+    path.style = 'fill: pink'
+    map.appendChild(svg)
+    svg.appendChild(path)
+    debugger
+}
+
 
 
 function login() {  
@@ -159,7 +180,6 @@ function login() {
         loginDiv.appendChild(loginForm)
     }
 }
-
 
 function newGame() {
     if (userLoggedIn && !playing) {
@@ -276,3 +296,6 @@ function endGame(){
     //and current user + game set to undefined
     postScore(gameFinalScore)
 }
+
+// Go Mariners 
+
