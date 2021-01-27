@@ -123,10 +123,13 @@ const states = [
 function convertStateName(symbol) {
     //global variable 
     selectedState = symbol
-    selectedState.id = symbol.name
-    let currentState = states.find(state => state.symbol == symbol.name)
-    let state = currentState.name
-    handleClick(state)
+    if (!selectedState.id) {
+        selectedState.id = symbol.name
+        let currentState = states.find(state => state.symbol == symbol.name)
+        let state = currentState.name
+        handleClick(state)
+    }
+
 }
 
 function handleClick(state) {
@@ -328,4 +331,17 @@ function endGame(){
 
 // Go Mariners 
 //lol
+// $('#map').usmap({
+//     stateSpecificStyles: {
+//       'MD': {fill: 'yellow'},
+//       'VA': {fill: 'teal'}
+//     } 
+//   });
 
+  $(document).ready(function() {
+    $('#map').usmap({
+        'click' : function(e, state) {
+              convertStateName(state)
+        },
+      });
+ });
