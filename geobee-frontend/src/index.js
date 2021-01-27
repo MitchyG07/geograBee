@@ -6,6 +6,7 @@ let userLoggedIn = false
 let playing = false
 let currentUser
 let currentGame
+let countdown
 login()
 
 let score = 0
@@ -39,12 +40,30 @@ function postGame(difficulty) {
     .then(statesGame => {
         startNewGame(statesGame)
         currentGame = statesGame
-        playing = true
     })
 }
 
 function postScore(gameFinalScore) {
-    console.log(gameFinalScore)
+    fetch(SCORE_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'
+    }, 
+        body: JSON.stringify(gameFinalScore),
+    })
+    .then(resp => resp.json())
+    .then(newScore => {
+        console.log(newScore)
+        playing = false
+        currentGame = undefined 
+        let scoreKeeper = document.getElementById('score-keeper')
+        scoreKeeper.innerText = ''
+        score = 0
+        newGame()
+    })
+}
+
+function getAllScores() {
+//fetch to get all user scores
 }
 
 const states = [
@@ -111,7 +130,7 @@ function convertStateName(symbol) {
 }
 
 function handleClick(state) {
-    console.log(state)
+    if (playing) {console.log(state)
     let div = document.getElementById('state-form-block')
     div.innerHTML = ''
     let form = document.createElement('form')
@@ -127,6 +146,7 @@ function handleClick(state) {
     div.appendChild(form)
     form.appendChild(input)
     form.appendChild(submit)
+    }
 }
 
 function handleSubmit(e, state) {
@@ -152,9 +172,7 @@ function correctAnswer() {
     path.style = 'fill: pink'
     map.appendChild(svg)
     svg.appendChild(path)
-    debugger
 }
-
 
 
 function login() {  
@@ -182,7 +200,9 @@ function login() {
 }
 
 function newGame() {
-    if (userLoggedIn && !playing) {
+    if (userLoggedIn && !playing) { 
+        let div = document.getElementById('state-form-block')
+        div.innerHTML = ''
         let newGameDiv = document.getElementById("new-game")
         let newGameBtn = document.createElement('button')
         newGameBtn.innerText = 'Start New Game'
@@ -194,6 +214,9 @@ function newGame() {
 
 
 function handleNewGameClick() {
+    let timer = document.getElementById('timer')
+    timer.innerText = '00:00'
+    
     let newGameDiv = document.getElementById("new-game")
     newGameDiv.innerHTML = ''
     newGameDiv.innerText = 'Choose Difficulty Level!'
@@ -251,11 +274,13 @@ function startNewGame(statesGame) {
 }
 
 function startTimer(duration) {
+    playing = true
+    
     display = document.getElementById('timer')
     let newGameDiv = document.getElementById('new-game')
     newGameDiv.innerHTML = '' 
     let timer = duration, minutes, seconds;
-    let countdown = setInterval(function () {
+    countdown = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -267,7 +292,6 @@ function startTimer(duration) {
         if (--timer < 0) {
             clearInterval(countdown)
             endGame()
-            //trigger a function here to stop the game and send the score
         }
     }, 1000);
 }
@@ -281,10 +305,15 @@ function checkGameOver() {
 }
 
 function endGame(){
+    clearInterval(countdown)
+
     let div = document.getElementById('state-form-block')
     div.innerHTML = ''
-    let scoreKeeper = document.getElementById('score-keeper')
-    scoreKeeper.innerText = `Final Score: ${score}`
+    if (score === 50) {
+        alert(`Perfect score! ${score} points!!`)
+    } else {
+    alert(`Final Score: ${score}`)
+    }
 
     let gameFinalScore = {
         total: score,
@@ -298,4 +327,5 @@ function endGame(){
 }
 
 // Go Mariners 
+//lol
 
