@@ -335,38 +335,43 @@ function endGame(){
 //lol
 
 function renderUserResults(userResultsObj) {
-    let userResultsDiv = document.getElementById('user-results')
+//game display
+
+    //grab side Nav and clear contents
+    let userResultsDiv = document.getElementsByClassName('sidenav')
     userResultsDiv.innerHTML = ''
     
-    let tableTitle = document.createElement('h3')
-    tableTitle.innerText = "Your Latest Games"
-    userResultsDiv.appendChild(tableTitle)
-    
-    let resultsTable = document.createElement('table')
+    //grab results table
+    let resultsTable = document.getElementById('results-table')
+
+    //create Elements for game display table
     let headerRow = document.createElement('tr')
     let headerColDiff = document.createElement('th')
     let headerColScore = document.createElement('th')
     
+    //set display table headings
     headerColDiff.innerText = "Difficulty"
     headerColScore.innerText = "Score"
+
+    //append header cols to header row
     headerRow.append(headerColDiff, headerColScore)
+    //append header row to results table
     resultsTable.appendChild(headerRow)
     
     //Slice determining how many results displayed
-    //in Users controller results are reversed, so most recent game is first
-    //as a result, slice from indexes 0-4 will give LATEST 5 games
     let showSlice = userResultsObj.slice(0,5)
+    //function rendering each game row
     renderEachGame(showSlice, resultsTable)
-    userResultsDiv.appendChild(resultsTable)
     
-    //User Stats
+
+//User Stats
+    //get aggregate score, average score, and games played
     let aggScore = userAggScore(userResultsObj)
     let avgScore = aggScore / (Object.keys(userResultsObj)).length
     let gamesPlayed = (Object.keys(userResultsObj)).length
-    
-    let totalsTitle = document.createElement('h3')
-    totalsTitle.innerText = "Your Stats"
-    
+
+    //create table elements
+    let aggRow = document
     let spanAggregate = document.createElement('span')
     let spanAvg = document.createElement('span')
     let spanTotGames = document.createElement('span')
@@ -378,17 +383,7 @@ function renderUserResults(userResultsObj) {
     spanAvg.innerText = `Average Score:  ${Math.round(avgScore * 10) / 10}`
     spanTotGames.innerHTML = `Total Games Played:  ${gamesPlayed}`
     
-    userResultsDiv.append(totalsTitle, spanAggregate, br1, spanAvg, br2, spanTotGames)
-}
-
-function userAggScore(userResultsObj) {
-    aggScore = 0
-    userResultsObj.forEach(object =>
-        Object.values(object).forEach(obj => {
-            aggScore += obj.total
-        })
-    )
-    return aggScore
+    // userResultsDiv.append(totalsTitle, spanAggregate, br1, spanAvg, br2, spanTotGames)
 }
 
 function renderEachGame(showSlice, resultsTable){
@@ -403,6 +398,16 @@ function renderEachGame(showSlice, resultsTable){
             resultsTable.appendChild(row)
         }
     })
+}
+
+function userAggScore(userResultsObj) {
+    aggScore = 0
+    userResultsObj.forEach(object =>
+        Object.values(object).forEach(obj => {
+            aggScore += obj.total
+        })
+    )
+    return aggScore
 }
 
 // $('#map').usmap({
