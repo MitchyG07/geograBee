@@ -84,9 +84,40 @@ input{
         left: 0px;
         background-color: rgba(255,255,255,0.5);;
         overflow-x: hidden;
-        padding-top: 20px;
+        padding-top: 75px;
+        padding-left: 15px
     }
     user agent stylesheet
     div {
         display: block;
     }
+
+
+    /* .table {
+        background-color: #fff;
+        color: #363636;
+        margin-bottom: 1.5rem;
+    } */
+    table {
+        width: 175px;
+        display: table;
+        border-collapse: separate;
+        box-sizing: border-box;
+        text-indent: initial;
+        border-spacing: 2px;
+        /* color: white;         */
+    }
+
+
+    table, td {
+        /* border-bottom: 1px solid gray; */
+        border-collapse: collapse;
+        color:  rgb(0,0,0, 0.6);
+      }
+
+    th {
+        border-collapse: collapse;
+        color: rgba(5,56,107, 0.6)
+      }
+ 
+      

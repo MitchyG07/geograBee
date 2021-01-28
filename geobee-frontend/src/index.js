@@ -349,13 +349,17 @@ function endGame(){
 
 function renderUserResults(userResultsObj) {
 //game display
-
+if ((Object.keys(userResultsObj)).length > 0){
     //grab side Nav and clear contents
     let userResultsDiv = document.getElementsByClassName('sidenav')
     userResultsDiv.innerHTML = ''
     
     //grab results table
     let resultsTable = document.getElementById('results-table')
+
+    //show h3 titles
+    document.getElementById('games-table-title').hidden = false
+    document.getElementById('games-stats-title').hidden = false
 
     //create Elements for game display table
     let headerRow = document.createElement('tr')
@@ -364,7 +368,9 @@ function renderUserResults(userResultsObj) {
     
     //set display table headings
     headerColDiff.innerText = "Difficulty"
+    headerColDiff.style.textAlign = "left"
     headerColScore.innerText = "Score"
+    headerColScore.style.textAlign = "center"
 
     //append header cols to header row
     headerRow.append(headerColDiff, headerColScore)
@@ -376,27 +382,7 @@ function renderUserResults(userResultsObj) {
     //function rendering each game row
     renderEachGame(showSlice, resultsTable)
     
-
-//User Stats
-    //get aggregate score, average score, and games played
-    let aggScore = userAggScore(userResultsObj)
-    let avgScore = aggScore / (Object.keys(userResultsObj)).length
-    let gamesPlayed = (Object.keys(userResultsObj)).length
-
-    //create table elements
-    let aggRow = document
-    let spanAggregate = document.createElement('span')
-    let spanAvg = document.createElement('span')
-    let spanTotGames = document.createElement('span')
-    
-    let br1 = document.createElement('br')
-    let br2 = document.createElement('br')
-    
-    spanAggregate.innerText = `Aggregate Score:  ${aggScore}`
-    spanAvg.innerText = `Average Score:  ${Math.round(avgScore * 10) / 10}`
-    spanTotGames.innerHTML = `Total Games Played:  ${gamesPlayed}`
-    
-    // userResultsDiv.append(totalsTitle, spanAggregate, br1, spanAvg, br2, spanTotGames)
+    renderUserStats(userResultsObj)
 }
 
 function renderEachGame(showSlice, resultsTable){
@@ -407,11 +393,14 @@ function renderEachGame(showSlice, resultsTable){
             let tdScore = document.createElement('td')
             tdDiff.innerText = key
             tdScore.innerText = object[key].total
+            tdScore.style.textAlign = "center"
             row.append(tdDiff, tdScore)
             resultsTable.appendChild(row)
         }
     })
+    }
 }
+
 
 function userAggScore(userResultsObj) {
     aggScore = 0
@@ -421,5 +410,64 @@ function userAggScore(userResultsObj) {
         })
     )
     return aggScore
+}
+
+function renderUserStats(userResultsObj) {
+    let gameStatsTable = document.getElementById('totals-table')
+    //get aggregate score, average score, and games played
+    let aggScore = userAggScore(userResultsObj)
+    let avgScore = Math.round(((aggScore / (Object.keys(userResultsObj)).length) * 10)) / 10
+    let gamesPlayed = (Object.keys(userResultsObj)).length
+ 
+//create table elements
+    //rows
+    let aggRow = document.createElement('tr')
+    let avgRow = document.createElement('tr')
+    let totGameRow = document.createElement('tr')
+    
+    //label cells
+    let aggLabel = document.createElement('th')
+    let avgLabel = document.createElement('th')
+    let totGameLabel = document.createElement('th')
+
+    //align label cells
+    aggLabel.style.textAlign = "left"
+    avgLabel.style.textAlign = "left"
+    totGameLabel.style.textAlign = "left"
+
+
+    //amount cells
+    let aggAmt = document.createElement('td')
+    let avgAmt = document.createElement('td')
+    let totGameAmt = document.createElement('td')
+
+    //left align amount cells 
+    aggAmt.style.textAlign = "right"
+    avgAmt.style.textAlign = "right"
+    totGameAmt.style.textAlign = "right"
+
+    //set label text
+    aggLabel.innerText = 'Total Score:'
+    avgLabel.innerText = 'Avg. Score:'
+    totGameLabel.innerText = 'Games Played:'  
+    
+    //style label text strong
+    aggLabel.style.fontWeight = "900"
+    avgLabel.style.fontWeight = "900"
+    totGameLabel.style.fontWeight = "900"
+    
+
+    //set amount text
+    aggAmt.innerText = aggScore 
+    avgAmt.innerText = avgScore
+    totGameAmt.innerText = gamesPlayed
+
+    //append cells, rows, table
+    aggRow.append(aggLabel, aggAmt)
+    avgRow.append(avgLabel, avgAmt)
+    totGameRow.append(totGameLabel, totGameAmt)
+
+    gameStatsTable.append(aggRow, avgRow, totGameRow)
+
 }
 
