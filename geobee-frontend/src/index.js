@@ -348,56 +348,62 @@ function endGame(){
 //lol
 
 function renderUserResults(userResultsObj) {
-//game display
-if ((Object.keys(userResultsObj)).length > 0){
-    //grab side Nav and clear contents
-    let userResultsDiv = document.getElementsByClassName('sidenav')
-    userResultsDiv.innerHTML = ''
-    
-    //grab results table
+    //grab tables and clear contents
     let resultsTable = document.getElementById('results-table')
+    resultsTable.innerHTML = ''
 
-    //show h3 titles
-    document.getElementById('games-table-title').hidden = false
-    document.getElementById('games-stats-title').hidden = false
+    let gameStatsTable = document.getElementById('totals-table')
+    gameStatsTable.innerHTML = ''
 
-    //create Elements for game display table
-    let headerRow = document.createElement('tr')
-    let headerColDiff = document.createElement('th')
-    let headerColScore = document.createElement('th')
-    
-    //set display table headings
-    headerColDiff.innerText = "Difficulty"
-    headerColDiff.style.textAlign = "left"
-    headerColScore.innerText = "Score"
-    headerColScore.style.textAlign = "center"
 
-    //append header cols to header row
-    headerRow.append(headerColDiff, headerColScore)
-    //append header row to results table
-    resultsTable.appendChild(headerRow)
-    
-    //Slice determining how many results displayed
-    let showSlice = userResultsObj.slice(0,5)
-    //function rendering each game row
-    renderEachGame(showSlice, resultsTable)
-    
-    renderUserStats(userResultsObj)
-}
+    if ((Object.keys(userResultsObj)).length > 0){
+        let userResultsDiv = document.getElementsByClassName('sidenav')
+        userResultsDiv.innerHTML = ''
 
-function renderEachGame(showSlice, resultsTable){
-    showSlice.forEach(object => {
-        for (key in object) {
-            let row = document.createElement('tr')
-            let tdDiff = document.createElement('td')
-            let tdScore = document.createElement('td')
-            tdDiff.innerText = key
-            tdScore.innerText = object[key].total
-            tdScore.style.textAlign = "center"
-            row.append(tdDiff, tdScore)
-            resultsTable.appendChild(row)
+        //grab results table
+        let resultsTable = document.getElementById('results-table')
+
+        //show h3 titles
+        document.getElementById('games-table-title').hidden = false
+        document.getElementById('games-stats-title').hidden = false
+
+        //create Elements for game display table
+        let headerRow = document.createElement('tr')
+        let headerColDiff = document.createElement('th')
+        let headerColScore = document.createElement('th')
+        
+        //set display table headings
+        headerColDiff.innerText = "Difficulty"
+        headerColDiff.style.textAlign = "left"
+        headerColScore.innerText = "Score"
+        headerColScore.style.textAlign = "center"
+
+        //append header cols to header row
+        headerRow.append(headerColDiff, headerColScore)
+        //append header row to results table
+        resultsTable.appendChild(headerRow)
+        
+        //Slice determining how many results displayed
+        let showSlice = userResultsObj.slice(0,5)
+        //function rendering each game row
+        renderEachGame(showSlice, resultsTable)
+        
+        renderUserStats(userResultsObj)
+
+    function renderEachGame(showSlice, resultsTable){
+        showSlice.forEach(object => {
+            for (key in object) {
+                let row = document.createElement('tr')
+                let tdDiff = document.createElement('td')
+                let tdScore = document.createElement('td')
+                tdDiff.innerText = key
+                tdScore.innerText = object[key].total
+                tdScore.style.textAlign = "center"
+                row.append(tdDiff, tdScore)
+                resultsTable.appendChild(row)
+                }
+            })
         }
-    })
     }
 }
 
