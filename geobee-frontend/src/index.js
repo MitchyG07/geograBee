@@ -229,7 +229,7 @@ function handleNewGameClick() {
     let br1 = document.createElement('br')
     let br2 = document.createElement('br')
     let br3 = document.createElement('br')
-    
+
     easyBtn.innerText = 'Easy'
     medBtn.innerText = 'Medium'
     hardBtn.innerText = 'Hard'
@@ -336,60 +336,63 @@ function endGame(){
 
 function renderUserResults(userResultsObj) {
     let userResultsDiv = document.getElementById('user-results')
-    
+    userResultsDiv.innerHTML = ''
     let tableTitle = document.createElement('h3')
-    tableTitle.innerText = "Your Games" 
+    tableTitle.innerText = "Your Latest Games"
     userResultsDiv.appendChild(tableTitle)
-
     let resultsTable = document.createElement('table')
-
     let headerRow = document.createElement('tr')
     let headerColDiff = document.createElement('th')
     let headerColScore = document.createElement('th')
-
     headerColDiff.innerText = "Difficulty"
     headerColScore.innerText = "Score"
-
     headerRow.append(headerColDiff, headerColScore)
     resultsTable.appendChild(headerRow)
-
-    for (key in userResultsObj) {
-        let row = document.createElement('tr')
-        let tdDiff = document.createElement('td')
-        let tdScore = document.createElement('td')
-
-        tdDiff.innerText = key 
-        tdScore.innerText = userResultsObj[key].total
-
-        row.append(tdDiff, tdScore)
-        resultsTable.appendChild(row)
-    }
-
+    //Slice determining how many results displayed
+    //in Users controller results are reversed, so most recent game is first
+    //as a result, slice from indexes 0-4 will give LATEST 5 games
+    let showSlice = userResultsObj.slice(0,5)
+    renderEachGame(showSlice, resultsTable)
     userResultsDiv.appendChild(resultsTable)
-
+    //User Stats
     let aggScore = userAggScore(userResultsObj)
     let avgScore = aggScore / (Object.keys(userResultsObj)).length
-
+    let gamesPlayed = (Object.keys(userResultsObj)).length
     let totalsTitle = document.createElement('h3')
     totalsTitle.innerText = "Your Stats"
-
     let spanAggregate = document.createElement('span')
     let spanAvg = document.createElement('span')
-    let br = document.createElement('br')
-
-    spanAggregate.innerText = `Aggregate Score: ${aggScore}`
-    spanAvg.innerText = `Average Score: ${avgScore}`
-
-    userResultsDiv.append(totalsTitle, spanAggregate, br, spanAvg)
-
+    let spanTotGames = document.createElement('span')
+    let br1 = document.createElement('br')
+    let br2 = document.createElement('br')
+    spanAggregate.innerText = `Aggregate Score:  ${aggScore}`
+    spanAvg.innerText = `Average Score:  ${Math.round(avgScore * 10) / 10}`
+    spanTotGames.innerHTML = `Total Games Played:  ${gamesPlayed}`
+    userResultsDiv.append(totalsTitle, spanAggregate, br1, spanAvg, br2, spanTotGames)
 }
 
 function userAggScore(userResultsObj) {
-    aggScore = 0 
-    Object.values(userResultsObj).forEach(obj => {
-        aggScore += obj.total
-    })
+    aggScore = 0
+    userResultsObj.forEach(object =>
+        Object.values(object).forEach(obj => {
+            aggScore += obj.total
+        })
+    )
     return aggScore
+    
+}
+function renderEachGame(showSlice, resultsTable){
+    showSlice.forEach(object => {
+        for (key in object) {
+            let row = document.createElement('tr')
+            let tdDiff = document.createElement('td')
+            let tdScore = document.createElement('td')
+            tdDiff.innerText = key
+            tdScore.innerText = object[key].total
+            row.append(tdDiff, tdScore)
+            resultsTable.appendChild(row)
+        }
+    })
 }
 
 // $('#map').usmap({

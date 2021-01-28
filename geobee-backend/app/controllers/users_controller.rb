@@ -7,20 +7,15 @@ class UsersController < ApplicationController
 
     def show
         user = User.find(params['id'])
-        
-        user_games = user.states_games 
-
+        user_games = user.states_games
         result = user_games.map {|i| {i.difficulty => i.scores[0]}}
         render json: result.reverse
-    end 
-
-    
+    end
 
     def create
         user = User.find_or_create_by(username: user_params["username"])
         render json: user    
     end
-
 
     private 
 
