@@ -150,7 +150,7 @@ function handleClick(state) {
     form.addEventListener('submit', (e) => handleSubmit(e, state))
 
     div.appendChild(form)
-    form.appendChild(input)
+    form.appendChild(input).focus()
     form.appendChild(submit)
     }
 }
