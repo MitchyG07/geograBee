@@ -144,6 +144,7 @@ function handleClick(state) {
     form.innerHTML = ''
     input.type = "text"
     input.name = "state"
+    input.placeholder = "Name that state!"
     submit.type = "submit"
     submit.value = "Submit" 
     form.addEventListener('submit', (e) => handleSubmit(e, state))
@@ -173,7 +174,7 @@ function correctAnswer() {
     let d = paths[selectedState.name]
     mark = paper.path(d)
     mark.attr({fill: "#5cdb95"})
-    mark.animate({fill: "#379683", stroke: "#05386B"}, 3000)
+    mark.animate({fill: "#379683", stroke: "#05386B"}, 2500)
 }
 
 
@@ -208,6 +209,7 @@ function newGame() {
         let newGameDiv = document.getElementById("new-game")
         let newGameBtn = document.createElement('button')
         newGameBtn.innerText = 'Start New Game'
+        newGameBtn.classList.add('pushy__btn', 'pushy__btn--sm', 'pushy__btn--green')
         newGameBtn.addEventListener('click', handleNewGameClick)
         
         newGameDiv.appendChild(newGameBtn)
@@ -234,6 +236,10 @@ function handleNewGameClick() {
     medBtn.innerText = 'Medium'
     hardBtn.innerText = 'Hard'
 
+    easyBtn.classList.add('pushy__btn', 'pushy__btn--sm', 'pushy__btn--green') 
+    medBtn.classList.add('pushy__btn', 'pushy__btn--sm', 'pushy__btn--green')
+    hardBtn.classList.add('pushy__btn', 'pushy__btn--sm', 'pushy__btn--green')
+
     easyBtn.addEventListener('click', () => postGame('Easy'))
     medBtn.addEventListener('click', () => postGame('Medium'))
     hardBtn.addEventListener('click', () => postGame('Hard'))
@@ -250,6 +256,7 @@ function startNewGame(statesGame) {
     let startBtn = document.createElement('button')
     startBtn.innerText = 'Start!'
     startBtn.id = "start-btn"
+    startBtn.classList.add('pushy__btn', 'pushy__btn--sm', 'pushy__btn--green')
     newGameDiv.append(startBtn)
 
     if (statesGame.difficulty === "Easy") {
