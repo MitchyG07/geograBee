@@ -87,7 +87,11 @@
     
     'mouseout': null,
     
-    'clickState': {},
+    'clickState': {
+      fill: "#5cdb95",
+      stroke: "#000",
+      scale: [1.1, 1.1]
+    },
     
     'mouseoverState': {},
     

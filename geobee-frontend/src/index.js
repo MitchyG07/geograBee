@@ -169,12 +169,16 @@ function handleSubmit(e, state) {
     }
 }
 
+let paper = Raphael("map2")
+
 function correctAnswer() {
-    let paper = Raphael("map")
+    let div = document.getElementById('map2')
+    let svg = document.querySelector('svg')
+    svg.height = 100
+    svg.width = 100
     let d = paths[selectedState.name]
     mark = paper.path(d)
-    mark.attr("fill", "#00C")
-    mark.toFront()
+    mark.attr("fill", "green")
 }
 
 
