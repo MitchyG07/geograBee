@@ -226,10 +226,6 @@ function handleNewGameClick() {
     let easyBtn = document.createElement('button')
     let medBtn = document.createElement('button')
     let hardBtn = document.createElement('button')
-    
-    let br1 = document.createElement('br')
-    let br2 = document.createElement('br')
-    let br3 = document.createElement('br')
 
     easyBtn.innerText = 'Easy'
     medBtn.innerText = 'Medium'
@@ -239,11 +235,15 @@ function handleNewGameClick() {
     medBtn.classList.add('pushy__btn', 'pushy__btn--sm', 'pushy__btn--green')
     hardBtn.classList.add('pushy__btn', 'pushy__btn--sm', 'pushy__btn--green')
 
+    easyBtn.id = "easy-button"
+    medBtn.id = "med-button"
+    hardBtn.id = "hard-button"
+
     easyBtn.addEventListener('click', () => postGame('Easy'))
     medBtn.addEventListener('click', () => postGame('Medium'))
     hardBtn.addEventListener('click', () => postGame('Hard'))
 
-    newGameDiv.append(br1, easyBtn, br2, medBtn, br3, hardBtn)
+    newGameDiv.append(easyBtn, medBtn, hardBtn)
 }
 
 
