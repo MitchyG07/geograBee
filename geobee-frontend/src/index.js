@@ -343,9 +343,6 @@ function endGame(){
     
 }
 
-// Go Mariners 
-//lol
-
 function renderUserResults(userResultsObj) {
     //grab tables and clear contents
     let resultsTable = document.getElementById('results-table')
@@ -476,3 +473,5 @@ function renderUserStats(userResultsObj) {
 
 }
 
+// Go Mariners 
+//lol
