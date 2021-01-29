@@ -115,6 +115,20 @@ input{
       }
  
      
-      #score-keeper {
-        color: rgba(5,56,107);
-      }
+  #score-keeper {
+    color: rgba(5,56,107);
+    }
+
+  #easy-button {
+    margin:0 auto;
+    display:block;
+  }
+  #med-button {
+    margin:0 auto;
+    display:block;
+  }
+
+#hard-button {
+  margin:0 auto;
+  display:block;
+  }
