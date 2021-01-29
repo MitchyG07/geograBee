@@ -21,8 +21,9 @@ header {
 }
 
 h1 {
-    color: #05386B;
-    letter-spacing: 10px; 
+  color: rgba(5,56,107);
+  text-shadow: 3px 3px rgba(5,56,107, 0.4);
+  letter-spacing: 6px; 
 }
 
 h3 {
@@ -93,12 +94,6 @@ input{
         display: block;
     }
 
-
-    /* .table {
-        background-color: #fff;
-        color: #363636;
-        margin-bottom: 1.5rem;
-    } */
     table {
         width: 175px;
         display: table;
@@ -106,12 +101,10 @@ input{
         box-sizing: border-box;
         text-indent: initial;
         border-spacing: 2px;
-        /* color: white;         */
     }
 
 
     table, td {
-        /* border-bottom: 1px solid gray; */
         border-collapse: collapse;
         color:  rgb(0,0,0, 0.6);
       }
@@ -121,4 +114,7 @@ input{
         color: rgba(5,56,107, 0.6)
       }
  
-      
+     
+      #score-keeper {
+        color: rgba(5,56,107);
+      }

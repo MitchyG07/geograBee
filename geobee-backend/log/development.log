@@ -18722,3 +18722,1307 @@ Processing by UsersController#show as */*
 Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 1877)
 
 
+Started POST "/users" for ::1 at 2021-01-28 16:10:34 -0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 13ms (Views: 0.6ms | ActiveRecord: 1.1ms | Allocations: 6190)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:10:35 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (1.4ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 53ms (Views: 2.3ms | ActiveRecord: 4.6ms | Allocations: 30213)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:21:33 -0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 1.0ms | Allocations: 6190)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:21:33 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (1.5ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.4ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 61ms (Views: 2.3ms | ActiveRecord: 5.9ms | Allocations: 30067)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:21:45 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 738)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:21:45 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 32ms (Views: 2.4ms | ActiveRecord: 3.2ms | Allocations: 18657)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:22:05 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 738)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:22:05 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 51ms (Views: 2.7ms | ActiveRecord: 2.8ms | Allocations: 18659)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:32:52 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 1255)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:32:52 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (1.4ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.5ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 39ms (Views: 2.5ms | ActiveRecord: 5.0ms | Allocations: 18699)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:33:40 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 738)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:33:40 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.7ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 50ms (Views: 5.5ms | ActiveRecord: 4.0ms | Allocations: 18657)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:36:51 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 720)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:36:51 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.4ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 41ms (Views: 4.2ms | ActiveRecord: 3.4ms | Allocations: 18655)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:41:08 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 720)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:41:08 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 52ms (Views: 2.3ms | ActiveRecord: 2.8ms | Allocations: 18656)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:42:18 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 720)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:42:18 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 30ms (Views: 2.6ms | ActiveRecord: 3.0ms | Allocations: 18655)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:45:06 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 720)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:45:06 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 26ms (Views: 2.1ms | ActiveRecord: 2.6ms | Allocations: 18655)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:46:24 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 720)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:46:24 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 30ms (Views: 2.5ms | ActiveRecord: 3.1ms | Allocations: 18655)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:46:30 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 720)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:46:30 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 43ms (Views: 2.4ms | ActiveRecord: 3.3ms | Allocations: 18656)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:46:41 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 720)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:46:41 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 31ms (Views: 2.3ms | ActiveRecord: 3.2ms | Allocations: 18655)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:47:17 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 720)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:47:17 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 30ms (Views: 2.5ms | ActiveRecord: 3.0ms | Allocations: 18655)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:48:22 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 720)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:48:22 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 27ms (Views: 2.2ms | ActiveRecord: 2.8ms | Allocations: 18655)
+
+
+Started POST "/states_games" for ::1 at 2021-01-28 16:48:33 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Easy", "states_game"=>{"difficulty"=>"Easy"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (1.8ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Easy"], ["created_at", "2021-01-29 00:48:33.655182"], ["updated_at", "2021-01-29 00:48:33.655182"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.7ms | Allocations: 2033)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:51:36 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 720)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:51:36 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 36ms (Views: 2.5ms | ActiveRecord: 2.6ms | Allocations: 18656)
+
+
+Started POST "/states_games" for ::1 at 2021-01-28 16:51:41 -0800
+Processing by StatesGamesController#create as */*
+  Parameters: {"difficulty"=>"Hard", "states_game"=>{"difficulty"=>"Hard"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mStatesGame Create (0.4ms)[0m  [1m[32mINSERT INTO "states_games" ("difficulty", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["difficulty", "Hard"], ["created_at", "2021-01-29 00:51:41.717604"], ["updated_at", "2021-01-29 00:51:41.717604"]]
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/states_games_controller.rb:8:in `create'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 1752)
+
+
+Started POST "/scores" for ::1 at 2021-01-28 16:53:53 -0800
+Processing by ScoresController#create as */*
+  Parameters: {"total"=>2, "user_id"=>11, "states_game_id"=>212, "score"=>{"total"=>2, "user_id"=>11, "states_game_id"=>212}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mStatesGame Load (0.1ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" WHERE "states_games"."id" = ? LIMIT ?[0m  [["id", 212], ["LIMIT", 1]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mScore Create (0.4ms)[0m  [1m[32mINSERT INTO "scores" ("total", "user_id", "states_game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["total", 2], ["user_id", 11], ["states_game_id", 212], ["created_at", "2021-01-29 00:53:53.367385"], ["updated_at", "2021-01-29 00:53:53.367385"]]
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/scores_controller.rb:8:in `create'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 3793)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:53:53 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.2ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.4ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 212]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 33ms (Views: 2.7ms | ActiveRecord: 3.5ms | Allocations: 19326)
+
+
+Started POST "/users" for ::1 at 2021-01-28 16:57:57 -0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rachel", "user"=>{"username"=>"rachel"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rachel"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 13ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 6190)
+
+
+Started GET "/users/11" for ::1 at 2021-01-28 16:57:57 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mStatesGame Load (0.3ms)[0m  [1m[34mSELECT "states_games".* FROM "states_games" INNER JOIN "scores" ON "states_games"."id" = "scores"."states_game_id" WHERE "scores"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:11:in `map'
+  [1m[36mScore Load (0.4ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 61]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 62]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 63]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 64]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 65]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 66]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 67]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 69]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 70]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 73]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 74]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 75]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 76]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 78]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 80]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 81]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 82]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 83]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 84]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 85]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 86]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 88]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 89]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 90]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 91]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 92]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+  [1m[36mScore Load (0.1ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."states_game_id" = ?[0m  [["states_game_id", 212]]
+  ↳ app/controllers/users_controller.rb:11:in `block in show'
+Completed 200 OK in 58ms (Views: 3.9ms | ActiveRecord: 4.3ms | Allocations: 30697)
+
+

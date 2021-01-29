@@ -178,7 +178,6 @@ function correctAnswer() {
 }
 
 
-
 function login() {  
     if (!userLoggedIn) {
         let loginDiv = document.getElementById('login')   
@@ -260,15 +259,14 @@ function startNewGame(statesGame) {
     newGameDiv.append(startBtn)
 
     if (statesGame.difficulty === "Easy") {
-        //3 min for easy game
-        timeLimit = 60 * 3 
+        //5 min for easy game
+        timeLimit = 60 * 5 
     } else if (statesGame.difficulty === "Medium") {
-        //2 min for med game
-        timeLimit = 60 * 2
+        //3:30 min for med game
+        timeLimit = 60 * 3.5
     } else {
-        // 1 min for hard game
-        //currently set to a few seconds for testing only
-        timeLimit = 60 * 0.2
+        // 2 min for hard game
+        timeLimit = 60 * 2
     }
 
     minutes = parseInt(timeLimit / 60, 10);
