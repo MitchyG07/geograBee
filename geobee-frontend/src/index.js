@@ -189,6 +189,7 @@ function login() {
         input.type = "text"
         input.name = "username"
         input.placeholder = "Enter your name to play!"
+        input.autocomplete = "off"
         submit = document.createElement('input')
         submit.type = "submit"
         submit.value = "Submit" 
