@@ -144,6 +144,7 @@ function handleClick(state) {
     form.innerHTML = ''
     input.type = "text"
     input.name = "state"
+    input.autocomplete = "off"
     input.placeholder = "Name that state!"
     submit.type = "submit"
     submit.value = "Submit" 
