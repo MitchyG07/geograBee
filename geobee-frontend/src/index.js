@@ -475,5 +475,6 @@ function renderUserStats(userResultsObj) {
 
 
 
+
 // Go Mariners 
 //lol
